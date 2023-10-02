@@ -1,27 +1,44 @@
 VERSION 5.00
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Begin VB.Form frm 
-   Caption         =   "VB6 -> .NET"
-   ClientHeight    =   5205
+   Caption         =   "VB6 -> C#"
+   ClientHeight    =   5208
    ClientLeft      =   120
-   ClientTop       =   465
-   ClientWidth     =   5190
+   ClientTop       =   468
+   ClientWidth     =   5196
    LinkTopic       =   "Form1"
-   ScaleHeight     =   5205
-   ScaleWidth      =   5190
-   StartUpPosition =   3  'Windows Default
-   Begin VB.Frame fra 
+   ScaleHeight     =   5208
+   ScaleWidth      =   5196
+   StartUpPosition =   3  '窗口缺省
+   Begin VB.CommandButton cmdOpenfile 
+      Caption         =   "..."
+      Height          =   288
+      Left            =   4200
+      TabIndex        =   18
+      Top             =   1920
+      Width           =   492
+   End
+   Begin VB.Frame Fra 
       Height          =   4935
+      Index           =   0
       Left            =   120
       TabIndex        =   0
       Top             =   120
       Width           =   4935
+      Begin MSComDlg.CommonDialog dia1 
+         Left            =   2520
+         Top             =   2760
+         _ExtentX        =   847
+         _ExtentY        =   847
+         _Version        =   393216
+      End
       Begin VB.OptionButton optVersion 
          Caption         =   "v2"
          Height          =   255
          Index           =   1
          Left            =   2648
          TabIndex        =   17
-         Top             =   1080
+         Top             =   1320
          Value           =   -1  'True
          Width           =   615
       End
@@ -31,11 +48,11 @@ Begin VB.Form frm
          Index           =   0
          Left            =   1928
          TabIndex        =   16
-         Top             =   1080
+         Top             =   1320
          Width           =   615
       End
       Begin VB.CommandButton cmdSupport 
-         Caption         =   "SUPPORT"
+         Caption         =   "支持"
          Height          =   285
          Left            =   2520
          TabIndex        =   15
@@ -43,7 +60,7 @@ Begin VB.Form frm
          Width           =   1215
       End
       Begin VB.CommandButton cmdScan 
-         Caption         =   "SCAN"
+         Caption         =   "扫描"
          Height          =   285
          Left            =   1200
          TabIndex        =   14
@@ -51,22 +68,22 @@ Begin VB.Form frm
          Width           =   1215
       End
       Begin VB.CommandButton cmdFile 
-         Caption         =   "     Single File   ----->"
+         Caption         =   "单个文件----->"
          Height          =   495
          Left            =   240
          TabIndex        =   6
-         Top             =   1680
+         Top             =   1800
          Width           =   1455
       End
       Begin VB.TextBox txtFile 
-         Height          =   285
+         Height          =   372
          Left            =   2040
          TabIndex        =   5
          Top             =   1800
-         Width           =   2415
+         Width           =   1932
       End
       Begin VB.CommandButton cmdLint 
-         Caption         =   "L&int"
+         Caption         =   "代码优化"
          Height          =   285
          Left            =   3960
          TabIndex        =   4
@@ -74,7 +91,7 @@ Begin VB.Form frm
          Width           =   855
       End
       Begin VB.CommandButton cmdConfig 
-         Caption         =   "Conf&ig"
+         Caption         =   "配置"
          Height          =   285
          Left            =   3960
          TabIndex        =   3
@@ -84,32 +101,32 @@ Begin VB.Form frm
       Begin VB.TextBox txtStats 
          Appearance      =   0  'Flat
          BackColor       =   &H8000000F&
-         Height          =   1695
+         Height          =   1572
          Left            =   2040
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
          TabIndex        =   12
-         Top             =   2160
+         Top             =   2280
          Width           =   2655
       End
       Begin VB.CommandButton cmdClasses 
-         Caption         =   "Classes"
+         Caption         =   "类"
          Height          =   495
          Left            =   240
          TabIndex        =   8
-         Top             =   2880
+         Top             =   3000
          Width           =   1455
       End
       Begin VB.CommandButton cmdModules 
-         Caption         =   "Modules"
+         Caption         =   "模块"
          Height          =   495
          Left            =   240
          TabIndex        =   9
-         Top             =   3480
+         Top             =   3600
          Width           =   1455
       End
       Begin VB.CommandButton cmdAll 
-         Caption         =   "ALL"
+         Caption         =   "全部转换"
          Height          =   495
          Left            =   240
          TabIndex        =   10
@@ -117,16 +134,16 @@ Begin VB.Form frm
          Width           =   1455
       End
       Begin VB.CommandButton cmdForms 
-         Caption         =   "Forms"
+         Caption         =   "窗体"
          Height          =   495
          Left            =   240
          TabIndex        =   7
-         Top             =   2280
+         Top             =   2400
          Width           =   1455
       End
       Begin VB.CommandButton cmdExit 
          Cancel          =   -1  'True
-         Caption         =   "E&xit"
+         Caption         =   "退出"
          Height          =   495
          Left            =   3240
          TabIndex        =   11
@@ -135,12 +152,20 @@ Begin VB.Form frm
       End
       Begin VB.TextBox txtSrc 
          Height          =   285
-         Left            =   1200
+         Left            =   1560
          Locked          =   -1  'True
          TabIndex        =   2
-         Text            =   "C:\WinCDS\WinCDS\WinCDS.vbp"
          Top             =   240
-         Width           =   2655
+         Width           =   2292
+      End
+      Begin VB.Frame Fra 
+         Caption         =   "版本选择"
+         Height          =   612
+         Index           =   1
+         Left            =   1320
+         TabIndex        =   19
+         Top             =   1080
+         Width           =   2532
       End
       Begin VB.Label lblPrg 
          Alignment       =   2  'Center
@@ -170,12 +195,12 @@ Begin VB.Form frm
       End
       Begin VB.Label lblSrc 
          Alignment       =   1  'Right Justify
-         Caption         =   "Project File:"
-         Height          =   255
-         Left            =   240
+         Caption         =   "工程名称："
+         Height          =   252
+         Left            =   120
          TabIndex        =   1
          Top             =   240
-         Width           =   855
+         Width           =   1332
       End
    End
 End
@@ -189,14 +214,19 @@ Option Explicit
 ' Main form
 
 Public pMax As Long
-
-Public Property Get ConverterVersion() As String
-  Dim I As Long
   For I = optVersion.LBound To optVersion.UBound
     If optVersion(I) Then ConverterVersion = optVersion(I).Caption: Exit Function
   Next
   ConverterVersion = CONVERTER_VERSION_1
 End Property
+
+Public Property Get ConverterVersion() As String
+  Dim I As Long
+
+Private Sub cmd_Click()
+dia1.ShowOpen
+txtSrc.Text = dia1.FileName
+End Sub
 
 Private Sub cmdAll_Click()
   If Not ConfigValid Then Exit Sub
@@ -296,6 +326,11 @@ End Function
 Private Sub cmdLint_Click()
   If Not ConfigValid Then Exit Sub
   frmLinter.Show vbModal
+End Sub
+
+Private Sub cmdOpenfile_Click()
+dia1.ShowOpen
+txtFile.Text = dia1.FileName
 End Sub
 
 Private Sub cmdScan_Click()

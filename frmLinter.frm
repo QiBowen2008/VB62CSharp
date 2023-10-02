@@ -1,14 +1,14 @@
 VERSION 5.00
 Begin VB.Form frmLinter 
-   Caption         =   "Lint Project"
-   ClientHeight    =   6375
+   Caption         =   "优化工程"
+   ClientHeight    =   6372
    ClientLeft      =   120
-   ClientTop       =   465
-   ClientWidth     =   6855
+   ClientTop       =   468
+   ClientWidth     =   6852
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6375
-   ScaleWidth      =   6855
-   StartUpPosition =   3  'Windows Default
+   ScaleHeight     =   6372
+   ScaleWidth      =   6852
+   StartUpPosition =   3  '窗口缺省
    Begin VB.Frame fraConfig 
       Caption         =   "Configuration:"
       Height          =   6135
@@ -26,7 +26,7 @@ Begin VB.Form frmLinter
       End
       Begin VB.TextBox txtVBPFile 
          Height          =   285
-         Left            =   1680
+         Left            =   2160
          Locked          =   -1  'True
          TabIndex        =   4
          Top             =   480
@@ -34,7 +34,7 @@ Begin VB.Form frmLinter
       End
       Begin VB.TextBox txtFile 
          Height          =   285
-         Left            =   1680
+         Left            =   2160
          TabIndex        =   3
          Top             =   840
          Width           =   4215
@@ -59,11 +59,11 @@ Begin VB.Form frmLinter
       Begin VB.Label lblSrc 
          Alignment       =   1  'Right Justify
          Caption         =   "Project File:"
-         Height          =   255
+         Height          =   252
          Left            =   240
          TabIndex        =   6
          Top             =   480
-         Width           =   1335
+         Width           =   1572
       End
       Begin VB.Label lblFile 
          Alignment       =   1  'Right Justify

@@ -1,0 +1,45 @@
+
+Module1:Module1:Module:
+Module1:GetINI:Function:Function GetINI(ByVal SectionName As String,ByVal KeyName As String,ByVal IniFileName As String) As String
+Module1:Module1.WriteINI:Private Function:Private Function WriteINI(txtym1 As String, txtym2 As String, txtym3 As String) As String
+Module1:InitCommonControlsVB:Function:Function InitCommonControlsVB() As Boolean
+Module1:Main:Function:Sub Main()                  '需要设置以此为启动函数
+Form1:Form1:Form:
+Form1:Form1.cmdCommand2:Control:VB.CommandButton
+Form1:Form1.cmd:Control:VB.CommandButton
+Form1:Form1.Text5:Control:VB.TextBox
+Form1:Form1.Text4:Control:VB.TextBox
+Form1:Form1.Text3:Control:VB.TextBox
+Form1:Form1.Text2:Control:VB.TextBox
+Form1:Form1.Command1:Control:VB.CommandButton
+Form1:Form1.Combo1:Control:VB.ComboBox
+Form1:Form1.Text1:Control:VB.TextBox
+Form1:Form1.CommonDialog1:Control:MSComDlg.CommonDialog
+Form1:Form1.Label6:Control:VB.Label
+Form1:Form1.Label5:Control:VB.Label
+Form1:Form1.Label4:Control:VB.Label
+Form1:Form1.Label3:Control:VB.Label
+Form1:Form1.Label2:Control:VB.Label
+Form1:Form1.Label1:Control:VB.Label
+Form1:Form1.File:Control:VB.Menu
+Form1:Form1.Open:Control:VB.Menu
+Form1:Form1.Save:Control:VB.Menu
+Form1:Form1.Saveas:Control:VB.Menu
+Form1:Form1.New:Control:VB.Menu
+Form1:Form1.Del:Control:VB.Menu
+Form1:Form1.OP:Control:VB.Menu
+Form1:Form1.Set:Control:VB.Menu
+Form1:Form1.About:Control:VB.Menu
+frmAbout:frmAbout:Form:
+frmAbout:frmAbout.cmdOK:Control:VB.CommandButton
+frmAbout:frmAbout.cmdSysInfo:Control:VB.CommandButton
+frmAbout:frmAbout.Label2:Control:VB.Label
+frmAbout:frmAbout.Label1:Control:VB.Label
+frmAbout:frmAbout.Line1:Control:VB.Line
+frmAbout:frmAbout.lblTitle:Control:VB.Label
+frmAbout:frmAbout.Line1:Control:VB.Line
+frmAbout:frmAbout.lblVersion:Control:VB.Label
+frmSet:frmSet:Form:
+frmSet:frmSet.Combo1:Control:VB.ComboBox
+frmSet:frmSet.Label2:Control:VB.Label
+frmSet:frmSet.Label1:Control:VB.Label

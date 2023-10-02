@@ -1,14 +1,31 @@
 VERSION 5.00
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Begin VB.Form frmConfig 
-   Caption         =   "Config - VB6 To C#"
-   ClientHeight    =   3270
+   Caption         =   "配置 - VB6 To C#"
+   ClientHeight    =   3264
    ClientLeft      =   60
-   ClientTop       =   405
+   ClientTop       =   408
    ClientWidth     =   6900
    LinkTopic       =   "Form1"
-   ScaleHeight     =   3270
+   ScaleHeight     =   3264
    ScaleWidth      =   6900
-   StartUpPosition =   3  'Windows Default
+   StartUpPosition =   3  '窗口缺省
+   Begin VB.CommandButton cmdSave 
+      Caption         =   "..."
+      Height          =   288
+      Left            =   6120
+      TabIndex        =   10
+      Top             =   1080
+      Width           =   372
+   End
+   Begin VB.CommandButton cmdOpenproject 
+      Caption         =   "..."
+      Height          =   288
+      Left            =   6120
+      TabIndex        =   9
+      Top             =   600
+      Width           =   372
+   End
    Begin VB.Frame fraConfig 
       Caption         =   "Configuration:"
       Height          =   3015
@@ -16,16 +33,24 @@ Begin VB.Form frmConfig
       TabIndex        =   0
       Top             =   120
       Width           =   6615
+      Begin MSComDlg.CommonDialog dia2 
+         Left            =   960
+         Top             =   2280
+         _ExtentX        =   847
+         _ExtentY        =   847
+         _Version        =   393216
+         Filter          =   "VB工程|*.vbp"
+      End
       Begin VB.TextBox txtAssemblyName 
          Height          =   285
          Left            =   1680
          TabIndex        =   6
-         Top             =   1320
+         Top             =   1440
          Width           =   4215
       End
       Begin VB.CommandButton cmdCancel 
          Cancel          =   -1  'True
-         Caption         =   "Ca&ncel"
+         Caption         =   "取消"
          Height          =   495
          Left            =   3720
          TabIndex        =   7
@@ -33,7 +58,7 @@ Begin VB.Form frmConfig
          Width           =   1335
       End
       Begin VB.CommandButton cmdOK 
-         Caption         =   "&OK"
+         Caption         =   "确定"
          Default         =   -1  'True
          Height          =   495
          Left            =   5160
@@ -42,45 +67,46 @@ Begin VB.Form frmConfig
          Width           =   1335
       End
       Begin VB.TextBox txtOutput 
-         Height          =   285
+         Height          =   372
          Left            =   1680
          TabIndex        =   4
-         Top             =   840
+         Top             =   960
          Width           =   4215
       End
       Begin VB.TextBox txtVBPFile 
-         Height          =   285
+         Height          =   492
          Left            =   1680
          TabIndex        =   2
-         Top             =   480
+         Top             =   360
          Width           =   4215
       End
       Begin VB.Label lblAssemblyName 
          Alignment       =   1  'Right Justify
          Caption         =   "Assembly Name:"
-         Height          =   255
-         Left            =   240
+         Height          =   252
+         Left            =   120
          TabIndex        =   5
-         Top             =   1320
-         Width           =   1335
+         Top             =   1440
+         Width           =   1452
       End
       Begin VB.Label lblOutput 
          Alignment       =   1  'Right Justify
-         Caption         =   "Output Folder:"
-         Height          =   255
-         Left            =   240
+         Caption         =   "输出文件夹："
+         Height          =   252
+         Left            =   120
          TabIndex        =   3
-         Top             =   840
-         Width           =   1335
+         Top             =   1080
+         Width           =   1452
+         WordWrap        =   -1  'True
       End
       Begin VB.Label lblSrc 
-         Alignment       =   1  'Right Justify
-         Caption         =   "Project File:"
-         Height          =   255
-         Left            =   240
+         Alignment       =   2  'Center
+         Caption         =   "工程文件："
+         Height          =   252
+         Left            =   360
          TabIndex        =   1
          Top             =   480
-         Width           =   1335
+         Width           =   1332
       End
    End
 End
@@ -91,7 +117,20 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 ' Config form
+Dim sh As New Shell
 
+Private Sub cmdOpenproject_Click()
+dia2.ShowOpen
+txtVBPFile.Text = dia2.FileName
+End Sub
+
+Private Sub cmdSave_Click()
+    Dim str
+    str = GetFolder(Me.hWnd, "浏览文件夹")
+    If str <> "" Then
+        txtOutput.Text = str
+    End If
+End Sub
 
 Private Sub Form_Load()
   modConfig.Hush = True
